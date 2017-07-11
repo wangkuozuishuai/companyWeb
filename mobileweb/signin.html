@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
+	<meta charset="UTF-8">	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+	<title>信息查询登录</title>
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/fastclick.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="css/signin.css">
+</head>
+
+<body>
+	<div class="signin" id="section1" >
+		<div class="signin-title"><p>用户登录</p></div>
+		<div class="input-field">
+            <input id="username" type="text"  placeholder="用户名" autocomplete="off" onfocus="removeinfotip()"/>
+            <input id="mobilenumber" type="text"  placeholder="手机号" autocomplete="off" onfocus="removeinfotip()"/>
+ 
+            <div style="margin:0 auto;display:flex;position:relative">           
+            	<input id="inputtext" type="text"  placeholder="验证码" autocomplete="off" onfocus="removeinfotip()" style="width:auto" /><img id="captcha_img" src='http://10.7.1.14/PHPyanzheng/captcha.php?r=echo rand(); ?>' style="position:absolute;right:0; height:100%; "/>
+            </div>
+        </div>
+        <p id="infotip"></p>
+        <div id="controlgp">
+			<button class="togglesection" id="register" style="color:white">注册</button>
+			<button id="loadin">登录</button>
+        </div>
+	</div>
+	<div class="signin" style="display:none" id="section2">
+		<div class="signin-title"><p>用户注册</p></div>
+		<div id="register">
+			<div>
+			<input type="text" id="signusername" placeholder="用户名" autocomplete="off" onfocus="unamefocus(this)" onblur="unamecheck(this)">
+			</div>
+			<p class="unamecheckp" id="unamecheckp">&nbsp</p>
+			<div>
+			<input type="text" id="signname" placeholder="姓名" autocomplete="off" onfocus="unamefocus(this)" onblur="unamecheck(this)" >
+			</div>
+			<p class="unamecheckp" id="namecheckp"></p>
+			<div>
+			<input type="text" id="signmobilenumber" placeholder="手机号" autocomplete="off" onfocus="unamefocus(this)" onblur="unamecheck(this)">
+			</div>
+			<p class="unamecheckp" id="mpnumcheckp"></p>
+			<button id="realregister" style="color:white">注册</button>
+			<button class="togglesection" id="backback">返回</button>
+		</div>
+	</div>
+	
+<script src="js/signin.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,582 @@
+*{
+			margin:0;
+			border:0;
+			text-decoration: none;
+			font: normal normal normal 10px "microsoft yahei",Arial,sans-serif;
+		}
+button,html input[type="button"],input[type="reset"],input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer
+}
+		a:link {color:white;background:none;} 
+ 		a:visited {color:white;background:none;}
+ 		a:hover {color:white;background:none;} 
+ 		a:active {color:white;background:none;} 
+		html
+		{
+			height:100%;
+			width:100%;
+			/*max-width:540px;*/
+			margin:0 auto;
+		}
+		body
+		{	
+			/*height:100vh;*/
+			width:100%;
+			/*max-width:540px;*/
+			margin:0 auto;
+			overflow-y:auto;
+			position:relative;
+		}
+		#personinfo
+		{
+			width:80%;
+			position:fixed;
+			background-color:#2a3751;
+			right:-300%;
+			z-index:11;
+			top:0;
+			padding-top:2em;
+			display:none;
+			box-sizing: border-box;
+		}
+		#personinfo>div{
+			position:absolute;
+			width:100%;
+			top:20%;
+			height:80%;
+		}
+		#personinfo .icon-cross
+		{
+			color:white;
+			font-size:2.5em;
+			display:block;
+			position:absolute;
+			right:1em;
+			top:1em;
+			cursor:pointer;
+		}
+		#personinfo p
+		{
+			font-size:2em;
+			color:white;
+			width:100%;
+			height:3em;
+			text-align:center;		
+			padding:.4em;
+			margin:0 auto;
+			line-height:2em;
+		   	border-top: 1px solid #313d56;
+		   	box-sizing: border-box;
+		}
+		#personinfo>div>span
+		{
+			background-color:#313d56;
+			height:0;
+			padding:0 ;
+			overflow:hidden;
+			font-size:2em;
+			display:block;
+			color:white;
+			text-align:center;		
+			line-height:2em;
+		   	box-sizing: border-box;
+		   	width:100%;
+		}
+		#personinfo>div>a
+		{
+			display:block;
+			font-size:2em;
+			width:100%;
+			height:2.8em;
+			line-height:2em;
+			text-align:center;
+			background-color:#089DB0;
+			padding:.4em;
+			position:absolute;
+			bottom:5%;
+			box-sizing: border-box;
+		}
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*		p>a{
+			display:block;
+			width:100%;
+			height:100%;
+			font-size:1em;
+			line-height:1.5em;
+
+		}*/
+		#realbody
+		{
+			min-height:92vh;
+			width:100%;
+			/*max-width:540px;*/
+			margin:0 auto;
+			background-color:#bbb;
+			overflow-y:auto;
+			overflow-x:hidden;
+		}
+
+		#top{
+			background-color:#2a3751;
+			width:100%;
+			height:8vh;
+			display:flex;
+			z-index:10;
+		}
+		#toplist{
+			height:100%;
+			width:13%;
+			display:flex;
+			justify-content: center;
+			align-items: center
+		}
+		#toph1{
+			height:100%;
+			width:70%;
+			color:white;
+		}
+		#toplogin{
+			height:100%;
+			width:13%;
+			display:flex;
+			justify-content: center;
+			align-items: center;
+			position:relative;
+		}
+		.supericon
+		{
+			position:absolute;
+		}
+
+		#toph1 h1{
+			display:block;
+			line-height:8vh;
+			text-align:center;
+			font-size:2.2em;
+			height:8vh;
+
+		}
+		.icon-menu,.icon-user,.icon-undo2{
+			color:white;
+			font-size:3em;
+			display:block;
+			line-height:1.6em;
+			cursor:pointer;
+		}
+		.icon-undo2{
+			display:none;
+		}
+
+
+		#topmenu
+		{
+			/*border-radius:0 1em 1em 0;*/
+			width:80%;
+			position:fixed;
+			background-color:#2a3751;
+			left:-300%;
+			z-index:11;
+			top:0;
+			height:100vh;
+			overflow-y: scroll;
+		}
+		#topmenu .icon-cross
+		{
+			color:white;
+			font-size:2.5em;
+			display:block;
+			position:absolute;
+			left:1em;
+			top:1em;
+			cursor:pointer;
+		}
+
+		#menulist{
+			position:absolute;
+			top:13em;
+			width:100%;
+
+			margin-top:2em;
+		}
+		#menulist a{
+			width:100%;
+			display:block;
+			text-align:center;
+			font-size:2em;
+			padding:.4em;
+			margin:0 auto;
+			line-height:2em;
+		   border-top: 1px solid #313d56;
+		   box-sizing: border-box;
+		}
+		#menulist>a:link {color:white;background:none;} 
+ 		#menulist>a:visited {color:white;background:#313d56;}
+ 		#menulist>a:hover {color:white;background:#313d56;} 
+ 		#menulist>a:active {color:white;background:#313d56;} 
+		#menulist>a:hover
+		{
+			border-left:5px solid white;
+		}
+
+		#atklogo{
+			width:40%;
+			height:7em;
+			background-image:url(../images/antaike.png);
+			background-position: center;
+			background-size:100% 100%;
+			position:absolute;
+			top:10vh;
+			left:30%;
+		}
+		#atkpng{
+			width:50%;
+			height:3em;
+			background-image:url(../images/atk.png);
+			background-position: center;
+			background-size:100% 100%;
+			margin:2em auto;
+		}
+
+
+		#content{
+			width:100%;
+			z-index:1;
+			color:white;
+		}
+		#content h1
+    	{
+    		font-size:3em;
+    		text-align: center;
+    	}
+    	#content p
+    	{
+    		font-size:2em;
+    		text-align:left;
+    		width:80%;
+    		display:block;
+    		margin:1em auto;
+
+    	}
+		
+		
+
+		#content>div
+		{
+			padding:1px;
+			box-shadow: 0px 0px 1px 1px white;
+		}
+
+		#content>div>div
+		{
+			display:flex;
+			flex-wrap:wrap;
+			justify-content:space-around;
+			columns:2;
+
+		}
+		#content>div>div>div
+		{
+			width:24%;
+			margin:1em;
+			border-radius:5px;
+			border:1px dashed white;
+			min-height:7em;
+			display:flex;
+			justify-content: center;
+			align-items: center;
+
+		}
+		#content>div>div>div>a
+		{
+
+			display:flex;
+			border-radius: 5px;
+			text-align:center;
+			font-size:1.5em;	
+			height:100%;
+			line-height:5em;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+		}
+		#content>div>div>div>a>span
+		{
+			display:block;
+			font-size:1em;
+		}
+
+		#content>div
+		{
+			border-radius:5px;
+			width:90%;
+			margin:2em auto;
+		}
+		#actuals
+		{
+			background-color:#ed1941;
+		}
+		#futures
+		{
+			background-color:#d2553d;
+		}
+		#tinymetal
+		{
+			background-color:#b76f40;
+		}
+		#awesomemetal
+		{
+			background-color:#c37e00;
+		}
+		#shitmetal
+		{
+			background-color:#c77eb5;
+		}
+		#othermarket
+		{
+			background-color:rgb(131,175,155);
+		}	
+		#metalNews
+		{
+			background-color:#00ae9d;
+		}	
+		#metalNews ul
+		{
+			padding:0;
+			width:80%;
+		}
+		#metalNews li
+		{
+			text-decoration: none;
+			text-align:left;
+			font-size:1.5em;	
+			list-style:none;
+			margin:1vh auto;
+		}
+		#metalNews p
+		{
+			text-decoration: underline;
+			font-size:1.5em;
+		}
+		#exchangeinfo
+		{
+			background-color:#78cdd1;
+		}
+		#financenumber
+		{
+			background-color:#009ad6;
+		}
+		#reporttime
+		{
+			background-color:#8552a1;
+		}
+		#introdution
+		{
+			background-color:#543044;
+		}
+		#contactus
+		{
+			background-color:#444;
+			width:100% !important;
+			border-radius:0 !important;
+			margin-bottom:0 !important;
+		}
+		#resultulhead>td
+		{
+			font-size:2em;
+		}
+		#resultXH
+		{
+			width:80%;
+			margin:0 auto;
+		}
+
+		table
+		{
+			width:94%;
+			text-align:center;
+			margin:2vh auto;
+			table-layout:fixed;
+		}
+		 td
+		{
+			line-height:2em;
+			font-size:1.5em;
+    		white-space:nowrap;
+   		 	overflow:hidden;
+    		text-overflow:ellipsis;
+    		margin:1vh auto;
+		}
+		.tr>td
+		{
+			font-size:3vh;
+		}
+		#resultnews>div>table>thead>tr>td:nth-child(1)
+		{
+			width:30%;
+		}
+		 tr:nth-child(odd)
+		{
+			background-color:#aaa;
+		}
+
+		.back
+		{
+			display:none;
+			position:fixed;
+			bottom:1em;
+			right:.1em;
+			text-align: center;
+			font-size:3em;
+		}
+		#backtoTop{
+			display:none;
+			position:fixed;
+			bottom:2.2em;
+			right:.1em;
+			text-align: center;
+			font-size:3em;
+		}
+
+
+		#bkg-half{
+			position:fixed;
+			height:100%;
+			width:100%;
+			/*max-width:540px;*/
+			background-color:rgba(0,0,0,0.2);
+			display:none;
+			z-index:10;
+			top:0;
+			margin:0 auto;
+			overflow:hidden;
+		}
+		#bkg-loding{
+			position:fixed;
+			height:100%;
+			width:100%;
+			/*max-width:540px;*/
+			background-color:rgba(0,0,0,0.2);
+			z-index:20;
+			top:0;
+			display:none;
+			justify-content: center;
+			align-items: center;
+		}
+
+@-moz-keyframes three-quarters-loader {
+  0% {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes three-quarters-loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes three-quarters-loader {
+  0% {
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* :not(:required) hides this rule from IE9 and below */
+.three-quarters-loader:not(:required) {
+  -moz-animation: three-quarters-loader 1250ms infinite linear;
+  -webkit-animation: three-quarters-loader 1250ms infinite linear;
+  animation: three-quarters-loader 1250ms infinite linear;
+  border: 1em solid #38e;
+  border-right-color: transparent;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  text-indent: -9999px;
+  width:4em;
+  height:4em;
+
+}
+
+
+
+
+
+
+
+		#realnews
+		{
+			border-radius: 5px;
+			width:80%;
+			margin: 2em auto;
+			color:white;
+			border:1px dashed white;
+			min-height:60vh;
+			padding:1px;
+			z-index:9;
+		}
+
+
+
+		#realnews h1
+		{
+			font-size:2em;
+			text-align: center;
+			width:70%;
+			margin:2vh auto;
+		}
+		#realnews h4
+		{
+			font-size:1em;
+			text-align: center;
+			margin:2vh auto;
+		}
+		#realnews p
+		{
+			font-size:1.5em;
+			width:100%;
+			margin:2vh auto;
+			width:80%;
+			text-indent:1em;
+		}
+		#realnews p:first-letter{
+			font-size:2em;
+		}
+
+
+
