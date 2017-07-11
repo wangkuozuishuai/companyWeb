@@ -17,7 +17,7 @@
 <meta content="black" name="apple-mobile-web-app-status-bar-style">     
 <meta content="telephone=no" name="format-detection">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" >
-	<title>有色金属信息查询</title>
+	<title>有色金属信息查询555</title>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="js/fastclick.js"></script>
