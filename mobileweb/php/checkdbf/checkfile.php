@@ -67,7 +67,7 @@ switch($a)
 	 	{
 			$row=dbase_get_record_with_names($dbf_conn,$i); 
 
-				if(preg_match("/(^A\d{4,})|(^SB)|(^BE)|(^M\d{4,})|(^BD)|(^B\d{4,})/", $row['CODE']))	
+				if(preg_match("/(^I)|(^JM)|(^J\d{4})/", $row['CODE']))	
 				{			
 					if($row['TIME']!=00000000000)
 					{
@@ -86,7 +86,7 @@ switch($a)
 	 	{
 			$row=dbase_get_record_with_names($dbf_conn,$i); 
 
-				if(preg_match("/(^W(H|S))|(^CF)|(^SR)/", $row['CODE']))	
+				if(preg_match("/(^SM)|(^SF)|(^ZC)/", $row['CODE']))	
 				{			
 					if($row['TIME']!=00000000000)
 					{
@@ -125,11 +125,11 @@ switch($a)
 			$row=dbase_get_record_with_names($dbf_conn,$i); 
 								if($row['TIME']!=00000000000)
 					{
-					echo '<tr id="t6'.$gla.$row['CODE'].'"><td colspan="2">'.date('Y-m-d,h:m:s',strtotime($row['TIME'])).'</td><td>'.$row['CODENAME'].'</td><td>'.$row['NEW'].'</td></tr>';
+					echo '<tr id="t4'.$gla.'A'.$row['CODE'].'"><td colspan="2">'.date('Y-m-d,h:m:s',strtotime($row['TIME'])).'</td><td>'.$row['CODENAME'].'</td><td>'.$row['NEW'].'</td></tr>';
 					continue;
 					}
 					else{
-					echo '<tr id="t6'.$gla.$row['CODE'].'"><td colspan="2"></td>No record<td>'.$row['CODENAME'].'</td><td>'.$row['NEW'].'</td></tr>';
+					echo '<tr id="t4'.$gla.$row['CODE'].'"><td colspan="2"></td>No record<td>'.$row['CODENAME'].'</td><td>'.$row['NEW'].'</td></tr>';
 					}
 		}
 	break;
@@ -228,25 +228,6 @@ switch($a)
 				else{}	
 			}
 	break;
-	case 'SHFEXC':
-		for($i=1;$i<=dbase_numrecords($dbf_conn);$i++)
-		 	{
-				$row=dbase_get_record_with_names($dbf_conn,$i); 
-
-				if(preg_match("/^WR/", $row['CODE']))	
-				{			
-					if($row['TIME']!=00000000000)
-					{
-					echo '<tr id="t4'.$gla.$row['CODE'].'"><td colspan="2">'.date('Y-m-d,h:m:s',strtotime($row['TIME'])).'</td><td>'.$row['CODENAME'].'</td><td>'.$row['NEW'].'</td></tr>';
-					continue;
-					}
-					else{
-					echo '<tr id="t4'.$gla.$row['CODE'].'"><td colspan="2">No record</td><td>'.$row['CODENAME'].'</td><td>'.$row['NEW'].'</td></tr>';
-					}
-				}
-				else{}	
-			}
-	break;
 	case 'SHFEQY':
 		for($i=1;$i<=dbase_numrecords($dbf_conn);$i++)
 		 	{
@@ -323,8 +304,46 @@ switch($a)
 				else{}	
 			}
 	break;
+	case 'SHFERJ':
+		for($i=1;$i<=dbase_numrecords($dbf_conn);$i++)
+		 	{
+				$row=dbase_get_record_with_names($dbf_conn,$i); 
+
+				if(preg_match("/^HC/", $row['CODE']))	
+				{			
+					if($row['TIME']!=00000000000)
+					{
+					echo '<tr id="t4'.$gla.$row['CODE'].'"><td colspan="2">'.date('Y-m-d,h:m:s',strtotime($row['TIME'])).'</td><td>'.$row['CODENAME'].'</td><td>'.$row['NEW'].'</td></tr>';
+					continue;
+					}
+					else{
+					echo '<tr id="t4'.$gla.$row['CODE'].'"><td colspan="2">No record</td><td>'.$row['CODENAME'].'</td><td>'.$row['NEW'].'</td></tr>';
+					}
+				}
+				else{}	
+			}
+	break;
+	case 'SHFERY':
+		for($i=1;$i<=dbase_numrecords($dbf_conn);$i++)
+		 	{
+				$row=dbase_get_record_with_names($dbf_conn,$i); 
+
+				if(preg_match("/^FU/", $row['CODE']))	
+				{			
+					if($row['TIME']!=00000000000)
+					{
+					echo '<tr id="t4'.$gla.$row['CODE'].'"><td colspan="2">'.date('Y-m-d,h:m:s',strtotime($row['TIME'])).'</td><td>'.$row['CODENAME'].'</td><td>'.$row['NEW'].'</td></tr>';
+					continue;
+					}
+					else{
+					echo '<tr id="t4'.$gla.$row['CODE'].'"><td colspan="2">No record</td><td>'.$row['CODENAME'].'</td><td>'.$row['NEW'].'</td></tr>';
+					}
+				}
+				else{}	
+			}
+	break;
 	default:
-	echo '数据错误';
+	echo 'Code wrong';
 	break;
 }
 

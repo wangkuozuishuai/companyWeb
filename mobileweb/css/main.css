@@ -249,7 +249,7 @@ button,html input[type="button"],input[type="reset"],input[type="submit"] {
 		#atkpng{
 			width:50%;
 			height:3em;
-			background-image:url(../images/atk.png);
+			/*background-image:url(../images/atk.png);*/
 			background-position: center;
 			background-size:100% 100%;
 			margin:2em auto;

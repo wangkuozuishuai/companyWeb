@@ -6,9 +6,21 @@ $(window).load(function (){
 
 
 	var thewindow=$(window),thedocument=$(document);
-
+	var autoa,autob,autoc,autod;
+	var louzhu = {};
 	gogotop();
 	//给返回顶部添加功能
+	function withtimea(a){
+		$.get(rootmenu+"/mobileweb/php/checkdbf/checkfile.php?sid="+a,function(data){
+		$('#resultul>tbody').html(data);
+		},'html');
+	}
+	function withtimeb(a){
+		$.get(rootmenu+"/mobileweb/php/checkdbf/checkfilelme.php?sid="+a,function(data){
+		$('#resultul>tbody').html(data);
+		},'html');
+	}
+
 	$('#backtoTop').on('click',gogotop)
 	//////////////////////////////////////
 	//启动 fastclick组件
@@ -185,7 +197,7 @@ $(window).load(function (){
 		$('.icon-paragraph-justify').css({'color':'#2ad5dc'});
 		$('body').css({'position':'fixed','top':0});
 	});
-	$('.icon-cross,#bkg-half,#menulist a').on('click',function(){
+	$('.icon-cross,#bkg-half').on('click',function(){
 		$('#personinfo').animate({'right':'-300%'});
 		$('#topmenu').animate({'left':'-300%'});
 		$('#bkg-half').fadeOut();
@@ -194,12 +206,21 @@ $(window).load(function (){
 
 	});
 	$('#menulist a').on('click',function(){
+		$('#personinfo').animate({'right':'-300%'});
+		$('#topmenu').animate({'left':'-300%'});
+		$('#bkg-half').fadeOut();
+		$('.icon-paragraph-justify').css({'color':'white'});
+		$('body').css({'position':'relative'});
 		$('#content').show();
-		$('#result,#resultul,#resulttable,#resultnews,#newstable,#realnews,#back1,#back2').hide();
+		$('#result,#resultul,#resulttable,#resultnews,#newstable,#realnews,#back1,#back2,#back3,#back4').hide();
 		$('#toph1 h1').html("有色金属信息查询");
 		$('.icon-user').show();
 		$('.icon-undo2').hide();
 		$('#realbody').unbind('scroll');
+		clearInterval(autoa);
+		clearInterval(autob);
+		clearInterval(autoc);
+		clearInterval(autod);
 	});
 	$('.icon-user').on('click',function(){
 		$('#personinfo').css({'height':document.documentElement.clientHeight,'display':'block'}).animate({'right':0});
@@ -223,6 +244,7 @@ $(window).load(function (){
 		/////////////
 		//case3,4,5
 		var dbfaddress = this.id;
+		louzhu.case4=dbfaddress;
 		//////////////
 		$('#bkg-loding').css('display','flex');
 
@@ -279,16 +301,10 @@ $(window).load(function (){
 					firstresponse();
 					$('#bkg-loding').css('display','none');
 					$('body').css('overflow-y','auto');
-				},'html');
-				break;
-			case '5':   //废金属
-				$.get(rootmenu+"/mobileweb/php/checkdbf/checktype5.php?mktid="+dbfaddress,function(data){
-					$('#resultul>tbody').html(data);
-					$('#toph1 h1').html(h1);
-					$('#resultul>thead').html('<tr><td colspan="4">点击产品获取详细数据</td></tr><tr class="tr"><td>类型</td></tr>');					
-					firstresponse();
-					$('#bkg-loding').css('display','none');
-					$('body').css('overflow-y','auto');
+					autoa = setInterval(function(){
+						withtimea(louzhu.case4);
+					},5000);
+
 				},'html');
 				break;
 			case '6':   //LME收盘价
@@ -309,6 +325,9 @@ $(window).load(function (){
 					firstresponse();
 					$('#bkg-loding').css('display','none');
 					$('body').css('overflow-y','auto');
+					autob = setInterval(function(){
+						withtimeb(louzhu.case4);
+					},5000)
 				},'html');
 				break;
 			default:
@@ -320,6 +339,7 @@ $(window).load(function (){
 
 	});
 //////////////////////////////////////////////////////
+
 //事件委托现货查询第二级
 	$('#resultul>tbody').on('click','tr',function()
 	{
@@ -328,12 +348,13 @@ $(window).load(function (){
 			var resultulhead= $(this).attr('value');
 			var addressmarket= this.className.slice(3);
 			///t4用
-
+			clearInterval(autoa);
+			clearInterval(autob);		
 			$('#realbody').scrollTop(0);
-			$('#back1').show();
 			switch(verifyadress)
 			{
 				case 't1':   //LME库存
+					$('#back1').show();
 					var address = this.id.slice(5); 
 					$('#resulttable>thead').html('<tr id="resultulhead"></tr><tr id="resulttop" class="tr"><td>日期</td><td>库存</td><td>增减</td></tr>');		
 					$('#resultulhead').html("<td colspan='3'>"+resultulhead+"</td>");
@@ -343,6 +364,7 @@ $(window).load(function (){
 					},'html');
 				break;
 				case 't2':    //LME未平仓、成交量
+					$('#back1').show();
 					var address = this.id.slice(5);
 					$('#resulttable>thead').html('<tr id="resultulhead"></tr><tr id="resulttop" class="tr"><td>日期</td><td>总量</td></tr>');		
 					$('#resultulhead').html("<td colspan='2'>"+resultulhead+"</td>");
@@ -353,6 +375,7 @@ $(window).load(function (){
 					},'html');
 				break;
 				case 't3':    //伦敦定盘价
+					$('#back1').show();
 					var address = this.id.slice(0,2);
 					$('#resulttable>thead').html('<tr id="resultulhead"></tr><tr id="resulttop" class="tr"><td>日期</td><td>金(上午)</td><td>金(下午)</td><td>银</td></tr>');		
 					$('#resultulhead').html("");
@@ -362,36 +385,24 @@ $(window).load(function (){
 					},'html');
 				break;
 				case 't4':    //国际贵金属 、其他市场
+					$('#back3').show();
 					var filename= this.id.slice(2,6);
 					var filecodename = this.id.slice(6);
 					var t4title = $(this).find('td:nth-child(2)').html()+$(this).find('td:first-child').html();
 			
 					$('#resulttable>thead').html('<tr id="resultulhead"></tr><tr id="resulttop" class="tr"><td></td><td></td></tr>');		
 					$('#resultulhead').html("<td colspan='2'>"+t4title+"</td>");
-					$.post(rootmenu+"/mobileweb/php/checkdbf/checkfile2.php",{'filename':filename,'codename':filecodename},function(data){
+					$.get(rootmenu+"/mobileweb/php/checkdbf/checkfile2.php?filename="+filename+"&codename="+filecodename,function(data){
 					$('#resulttable>tbody').html(data);
-					},'html');
-				break;
-				case 't5':   //废金属	
-					var id = this.id;	
-					var t5title = $(this).find('td').html();
-					$('#resulttable>thead').html('<tr id="resultulhead"></tr><tr id="resulttop" class="tr"></tr>');		
-					$('#resultulhead').html("<td colspan='2' >"+t5title+"</td>");
-					$.get(rootmenu+"/mobileweb/php/checkdbf/check2type5.php?id="+id,function(data){
-					$('#resulttable>tbody').html(data);
-					},'html');
-				break;
-				case 't6':    //COMEX
-					var filename= this.id.slice(2,5);
-					var filecodename = this.id.slice(5);
-					var t4title = $(this).find('td:first-child').html();			
-					$('#resulttable>thead').html('<tr id="resultulhead"></tr><tr id="resulttop" class="tr"><td></td><td></td></tr>');		
-					$('#resultulhead').html("<td colspan='2'>"+t4title+"</td>");
-					$.post(rootmenu+"/mobileweb/php/checkdbf/checkfile2.php",{'filename':filename,'codename':filecodename},function(data){
-					$('#resulttable>tbody').html(data);
+						autoc = setInterval(function(){
+							$.get(rootmenu+"/mobileweb/php/checkdbf/checkfile2.php?filename="+filename+"&codename="+filecodename,function(data){
+							$('#resulttable>tbody').html(data);
+								},'html');
+						},5000)
 					},'html');
 				break;
 				case 't7':   // LME 现 期 官
+					$('#back4').show();
 					var filename= this.id.slice(2,5);
 					var filecodename = this.id.slice(5);
 					var t4title = $(this).find('td:nth-child(2)').html()+$(this).find('td:first-child').html();			
@@ -400,9 +411,15 @@ $(window).load(function (){
 					$('#resultulhead').html("<td colspan='2'>"+t4title+"</td>");
 					$.get(rootmenu+"/mobileweb/php/checkdbf/checkfilelme.php?sid="+filename+"&filecodename="+filecodename,function(data){
 					$('#resulttable>tbody').html(data);
+						autod = setInterval(function(){
+							$.get(rootmenu+"/mobileweb/php/checkdbf/checkfilelme.php?sid="+filename+"&filecodename="+filecodename,function(data){
+							$('#resulttable>tbody').html(data);
+								},'html');
+						},5000)
 					},'html');
 				break;
 				default:    //现货那一堆、上海黄金、MB、欧洲小金属、LME收盘价
+					$('#back1').show();
 					var address = this.id.slice(3);	
 					var classname=$(this).attr('class').slice(3);	
 					if(classname==13)//LME收盘价的幺蛾子
@@ -426,21 +443,69 @@ $(window).load(function (){
 	});
 ////////////////////////////////////////////////////////
 
-
-
-
-
-
-
-
-
+$('#back4').on('click',function()
+{
+	$('#back3').hide();
+	$('#resultul').fadeIn();
+	$('#resulttable').hide();
+	thedocument.scrollTop(0);
+	$('#resulttable>thead,#resulttable>tbody').empty();
+	thedocument.trigger('scroll');
+	clearInterval(autod);
+	autob = setInterval(function(){
+		withtimea(louzhu.case4);
+	},5000);
+});	
+$('#back3').on('click',function()
+{
+	$('#back3').hide();
+	$('#resultul').fadeIn();
+	$('#resulttable').hide();
+	thedocument.scrollTop(0);
+	$('#resulttable>thead,#resulttable>tbody').empty();
+	thedocument.trigger('scroll');
+	clearInterval(autoc);
+	autoa = setInterval(function(){
+		withtimea(louzhu.case4);
+	},5000);
+});	
 $('#back2').on('click',function()
 {
 	$('#back2').hide();
 	$('#realnews').hide();
 	$('#newstable').fadeIn();
-	 thedocument.scrollTop(scrolltop);
+	thedocument.scrollTop(scrolltop);
 	thedocument.trigger('scroll');
+	thedocument.on('scroll',debounce(function()
+				{
+
+						var offsettop = thedocument.scrollTop();
+						var windowheight=thewindow.height();
+						var tableheight= thedocument.height();
+						var trnumber = $('#newstbody>tr').length;
+
+			
+						if(tableheight<=offsettop+windowheight+200)
+						{
+							$.ajax({ 
+								    type: "POST", 	
+									url:rootmenu+"/mobileweb/php/news/gettenmore.php",
+									data: 
+										{
+											number:trnumber,
+										},
+									dataType:"html",
+									success: function(data)
+										{
+											 $('#newstbody').append(data);
+										},
+									error: function(jqXHR)
+										{     
+									   		alert("发生错误：" + jqXHR.status);  
+									   	},     
+								})
+						}
+				},300));
 });
 $('#back1').on('click',function()
 {
@@ -489,7 +554,7 @@ function debounce(fn,delay){
 //返回图表绑定事件
 	$('.icon-undo2').on('click',function()
 		{
-			$('#result,#resultul,#resulttable,#resultnews,#newstable,#realnews,#back1,#back2').hide();
+			$('#result,#resultul,#resulttable,#resultnews,#newstable,#realnews,#back1,#back2,#back3,#back4').hide();
 			$('#content').show();
 			$('#toph1 h1').html("有色金属信息查询");
 			$('.icon-user').show();
@@ -497,6 +562,10 @@ function debounce(fn,delay){
 			thedocument.off('scroll');
 			thewindow.scrollTop(distancetop);
 			$('#resultul>tbody,#resultul>thead,#resulttable>thead,#resulttable>tbody').empty();
+			clearInterval(autoa);
+				clearInterval(autob);
+					clearInterval(autoc);
+						clearInterval(autod);
 
 		});
 

@@ -1,8 +1,13 @@
 <?php
 include './config.php';
 
-$filename = $_POST['filename'];
-$codename = str_replace(' ', '',$_POST['codename']);
+$filename = $_GET['filename'];
+if($filename=='CMXA')
+{
+	$filename='CMX';	
+}
+
+$codename = str_replace(' ', '',$_GET['codename']);
 $address = $dbfroot.$filename.'.DBF';
 
 $dbf_conn=dbase_open($address,0);

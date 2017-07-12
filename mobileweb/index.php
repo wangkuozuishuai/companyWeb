@@ -17,7 +17,7 @@
 <meta content="black" name="apple-mobile-web-app-status-bar-style">     
 <meta content="telephone=no" name="format-detection">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" >
-	<title>有色金属信息查询555</title>
+	<title>有色金属信息查询</title>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="js/fastclick.js"></script>
@@ -97,24 +97,6 @@
 		<div id="futures">
 			<h1>期货报价</h1>
 			<div id= "futuresContent">
-				<div><a value="4" href="javascript:void(0)" id="SHFEQT" ><span>上海期铜</span></a></div>
-				<div><a value="4" href="javascript:void(0)" id="SHFEQL" ><span>上海期铝</span></a></div>
-				<div><a value="4" href="javascript:void(0)" id="SHFEQQ" ><span>上海期铅</span></a></div>
-				<div><a value="4" href="javascript:void(0)" id="SHFEQX" ><span>上海期锌</span></a></div>
-				<div><a value="4" href="javascript:void(0)" id="SHFEQXI" ><span>上海期锡</span></a></div>					
-				<div><a value="4" href="javascript:void(0)" id="SHFEQN" ><span>上海期镍</span></a></div>
-
-				<div><a value="4" href="javascript:void(0)" id="SHFEQJ" ><span>上海期金</span></a></div>
-				<div><a value="4" href="javascript:void(0)" id="SHFEQY" ><span>上海期银</span></a></div>
-
-
-
-
-
-
-			
-				<div><a value="4" href="javascript:void(0)" id="SHFELG" ><span>上海螺钢</span></a></div>
-				<div><a value="4" href="javascript:void(0)" id="SHFEXC" ><span>上海线材</span></a></div>
 				<div><a value="7" href="javascript:void(0)" id="LMEG"><span>LME官方</span></a></div>				
 				<div><a value="7" href="javascript:void(0)" id="LMEQ"><span>LME期货</span></a></div>
 				<div><a value="7" href="javascript:void(0)" id="LMEX"><span>LME现货</span></a></div>
@@ -123,6 +105,21 @@
 				<div><a value="2" href="javascript:void(0)" id="LME未平仓合约03"><span>LME未平仓合约</span></a></div>
 				<div><a value="6" href="javascript:void(0)" id="LME最后收盘价13"><span>LME最后收盘价</span></a></div>
 				<div><a value="4" href="javascript:void(0)" id="CMX"><span>COMEX</span></a></div>
+				<div><a value="4" href="javascript:void(0)" id="SHFEQT" ><span>上海期铜</span></a></div>
+				<div><a value="4" href="javascript:void(0)" id="SHFEQL" ><span>上海期铝</span></a></div>
+				<div><a value="4" href="javascript:void(0)" id="SHFEQQ" ><span>上海期铅</span></a></div>
+				<div><a value="4" href="javascript:void(0)" id="SHFEQX" ><span>上海期锌</span></a></div>
+				<div><a value="4" href="javascript:void(0)" id="SHFEQXI" ><span>上海期锡</span></a></div>					
+				<div><a value="4" href="javascript:void(0)" id="SHFEQN" ><span>上海期镍</span></a></div>
+				<div><a value="4" href="javascript:void(0)" id="SHFEQJ" ><span>上海期金</span></a></div>
+				<div><a value="4" href="javascript:void(0)" id="SHFEQY" ><span>上海期银</span></a></div>		
+				<div><a value="4" href="javascript:void(0)" id="SHFELG" ><span>上海螺钢</span></a></div>
+				<div><a value="4" href="javascript:void(0)" id="SHFERY" ><span>上海燃油</span></a></div>
+				<div><a value="4" href="javascript:void(0)" id="SHFEXJ" ><span>上海橡胶</span></a></div>
+				<div><a value="4" href="javascript:void(0)" id="SHFERJ" ><span>上海热轧卷</span></a></div>
+
+
+
 			</div>
 		</div>
 		
@@ -144,8 +141,6 @@
 		<div id="othermarket">
 			<h1>其他市场报价</h1>
 			<div id="omContent">
-				<div><a value="4" href="javascript:void(0)" id="SHFERY" ><span>上海燃油</span></a></div>
-				<div><a value="4" href="javascript:void(0)" id="SHFEXJ" ><span>上海橡胶</span></a></div>
 				<div><a value="4" href="javascript:void(0)" id="DLCE" ><span>大连交易所</span></a></div>
 				<div><a value="4" href="javascript:void(0)" id="CZCE" ><span>郑州交易所</span></a></div>
 				<div><a value="4" href="javascript:void(0)" id="NYME" ><span>NYME原油</span></a></div>
@@ -230,6 +225,8 @@
 
 	<span id="back1" class="back icon-circle-left"></span>
 	<span id="back2" class="back icon-circle-left"></span>
+	<span id="back3" class="back icon-circle-left"></span>
+	<span id="back4" class="back icon-circle-left"></span>
 	<span id="backtoTop" class="icon-circle-up"></span>
 
 

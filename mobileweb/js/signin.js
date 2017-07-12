@@ -157,10 +157,6 @@ $('#loadin').on('click',function()
 		}
 		else
 		{
-		var hehe = $('#inputtext').val();
-			$.post("http://10.7.1.14/mobileweb/php/form.php",{'hehe':hehe},function(data){
-				if(data==1)
-				{
 					$.ajax({
 					type:"POST",
 					url:signinAddress+"/mobileweb/php/signinout/signin.php",
@@ -179,13 +175,7 @@ $('#loadin').on('click',function()
 						}
 					},
 					error:function(data){}
-					})
-				}else if(data==0)
-				{
-					$('#infotip').html("验证码错误");
-				}
-			},'html')
-		
+					})		
 		}
 	}
 	else
