@@ -3,7 +3,7 @@ include '../connect.php';
 
 $sid = $_GET['sid'];
 $pid = $_GET['pid'];
-$check_db2 = mysql_query("SELECT * FROM atk_stock_daily where sid='$sid' and pid = '$pid' limit 50");
+$check_db2 = mysql_query("SELECT * FROM atk_stock_daily where sid='$sid' and pid = '$pid' order by pdate DESC limit 50");
 
 switch($sid){
 	case '1':

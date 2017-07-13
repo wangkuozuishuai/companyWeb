@@ -442,17 +442,19 @@ button,html input[type="button"],input[type="reset"],input[type="submit"] {
 			display:none;
 			position:fixed;
 			bottom:1em;
-			right:.1em;
+			right:.3em;
+			color:#2a3751;
 			text-align: center;
-			font-size:3em;
+			font-size:4em;
 		}
 		#backtoTop{
+			color:#2a3751;
 			display:none;
 			position:fixed;
-			bottom:2.2em;
-			right:.1em;
+			bottom:2.1em;
+			right:.3em;
 			text-align: center;
-			font-size:3em;
+			font-size:4em;
 		}
 
 

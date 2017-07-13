@@ -3,6 +3,11 @@
 // type = 3 
 
 $(window).load(function (){
+	if(!!window.ActiveXObject || "ActiveXObject" in window)
+	{
+		alert('请使用手机浏览该页面，IE或包括IE内核的多核浏览器会造成一些错误！');
+		// window.location.href('http://10.7.1.14/mobileweb/signin.html')
+	}
 
 
 	var thewindow=$(window),thedocument=$(document);
@@ -125,15 +130,15 @@ $(window).load(function (){
 		var refreshfiger = function(){
 			$.get(rootmenu+"/mobileweb/php/checkdbf/connectfile2.php?address=MSID",function(data){
 				 $('#meizhi').text(data[0]);
-				 $('#shenzhi').html(data[1]);
-				 $('#shangzhi').html(data[2]);
-				 $('#hengzhi').html(data[3]);
-				 $('#daozhi').html(data[4]);
-				 $('#nazhi').html(data[5]);
-				 $('#rizhi').html(data[6]);
-				 $('#haizhi').html(data[7]);
-				 $('#fazhi').html(data[8]);
-				 $('#bazhi').html(data[9]);
+				 $('#shenzhi').text(data[1]);
+				 $('#shangzhi').text(data[2]);
+				 $('#hengzhi').text(data[3]);
+				 $('#daozhi').text(data[4]);
+				 $('#nazhi').text(data[5]);
+				 $('#rizhi').text(data[6]);
+				 $('#haizhi').text(data[7]);
+				 $('#fazhi').text(data[8]);
+				 $('#bazhi').text(data[9]);
 				},'json')
 			}
 //////////////////////////////////////////////////////////////////////////////////
@@ -445,7 +450,7 @@ $(window).load(function (){
 
 $('#back4').on('click',function()
 {
-	$('#back3').hide();
+	$('#back4').hide();
 	$('#resultul').fadeIn();
 	$('#resulttable').hide();
 	thedocument.scrollTop(0);
@@ -453,7 +458,7 @@ $('#back4').on('click',function()
 	thedocument.trigger('scroll');
 	clearInterval(autod);
 	autob = setInterval(function(){
-		withtimea(louzhu.case4);
+		withtimeb(louzhu.case4);
 	},5000);
 });	
 $('#back3').on('click',function()
@@ -554,7 +559,7 @@ function debounce(fn,delay){
 //返回图表绑定事件
 	$('.icon-undo2').on('click',function()
 		{
-			$('#result,#resultul,#resulttable,#resultnews,#newstable,#realnews,#back1,#back2,#back3,#back4').hide();
+			$('textresult,#resultul,#resulttable,#resultnews,#newstable,#realnews,#back1,#back2,#back3,#back4').hide();
 			$('#content').show();
 			$('#toph1 h1').html("有色金属信息查询");
 			$('.icon-user').show();

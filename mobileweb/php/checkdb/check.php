@@ -9,7 +9,7 @@ $check_dbt = mysql_query("SELECT * from atk_spot_prices where mid='$rowmid' and 
 	$row2=mysql_fetch_array($check_dbt);
 
 
-  echo '<tr class="mid'.$row2['mid'].'"id="pid'.$row2['pid'].'" value="'.$row['pname'].'"><td>'.substr($row2['pdate'],5).'</td><td>'.$row['pname'].'</td><td>'.$row2['pheigh'].'</td><td>'.$row2['plow'].'</td></tr>';
+  echo '<tr class="mid'.$row2['mid'].'"id="pid'.$row2['pid'].'" value="'.$row['pname'].'"><td>'.substr($row2['pdate'],5).'</td><td>'.$row['pname'].'</td><td>'.substr($row2['pheigh'],0,-3).'</td><td>'.substr($row2['plow'],0,-3).'</td></tr>';
 
  };
 
